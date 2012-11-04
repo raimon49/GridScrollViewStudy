@@ -31,6 +31,12 @@
                                  screenRect.size.height - navigationRect.size.height);
     self.gridScrollView = [[GridScrollView alloc] initWithFrame:selfRect];
     [self.view addSubview:self.gridScrollView];
+    
+    for (int i=0; i<10; ++i) {
+        UIView *item = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 150)];
+        item.backgroundColor = [UIColor redColor];
+        [self.gridScrollView addItem:item];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -15,4 +15,6 @@
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 
+- (void)addItem:(UIView *)item;
+
 @end
