@@ -10,17 +10,21 @@
 
 @implementation GridScrollView
 
+@synthesize scrollView;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.bounces = NO;
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        self.scrollView.bounces = NO;
+        [self addSubview:self.scrollView];
         // dummy child
         UIView *child = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 800)];
         child.backgroundColor = [UIColor redColor];
-        self.contentSize = CGSizeMake(320, 800);
-        [self addSubview:child];
+        self.scrollView.contentSize = CGSizeMake(320, 800);
+        [self.scrollView addSubview:child];
     }
     return self;
 }

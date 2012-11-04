@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GridScrollView : UIScrollView
+@interface GridScrollView : UIView <UIScrollViewDelegate> {
+    @public
+     UIScrollView *scrollView;
+}
+
+@property (strong, nonatomic) UIScrollView *scrollView;
 
 @end
