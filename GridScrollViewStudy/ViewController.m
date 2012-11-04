@@ -10,14 +10,27 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) GridScrollView *gridScrollView;
+
 @end
 
 @implementation ViewController
+
+@synthesize gridScrollView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.title = @"GridScroll";
+    CGRect navigationRect = self.navigationController.navigationBar.frame;
+    CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
+    CGRect selfRect = CGRectMake(0,
+                                 0,
+                                 screenRect.size.width,
+                                 screenRect.size.height - navigationRect.size.height);
+    self.gridScrollView = [[GridScrollView alloc] initWithFrame:selfRect];
+    [self.view addSubview:self.gridScrollView];
 }
 
 - (void)didReceiveMemoryWarning

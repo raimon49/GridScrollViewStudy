@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GridScrollView.h
 //  GridScrollViewStudy
 //
 //  Created by raimon on 2012/11/04.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GridScrollView.h"
 
-@interface ViewController : UIViewController
+@interface GridScrollView : UIScrollView
 
 @end
