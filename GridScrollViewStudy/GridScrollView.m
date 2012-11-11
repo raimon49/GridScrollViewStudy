@@ -28,12 +28,8 @@
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         self.scrollView.bounces = NO;
         [self addSubview:self.scrollView];
-        // dummy child
-        UIView *child = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 800)];
-        child.backgroundColor = [UIColor redColor];
-        // self.scrollView.contentSize = CGSizeMake(320, 800);
-        // [self.scrollView addSubview:child];
     }
+    
     return self;
 }
 
@@ -46,7 +42,7 @@
         [item addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
                                                                            action:@selector(handleTap:)]];
     }
-    
+
     int itemCount = [self.items count];
     BOOL isOddItem = (itemCount % 2 == 1);
     if (isOddItem) {
@@ -65,11 +61,10 @@
 
 - (void)redrawScrollView
 {
-    // TODO
     float contentHeight = (150 + 10) * (ceil([self.items count] / 2) + 1);
     NSLog(@"contentHeight: %f", contentHeight);
     float contentWidth = self.scrollView.contentSize.width;
-    
+
     self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
 }
 
