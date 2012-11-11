@@ -29,7 +29,7 @@
         self.scrollView.bounces = NO;
         [self addSubview:self.scrollView];
     }
-    
+
     return self;
 }
 
@@ -62,7 +62,6 @@
 - (void)redrawScrollView
 {
     float contentHeight = (150 + 10) * (ceil([self.items count] / 2) + 1);
-    NSLog(@"contentHeight: %f", contentHeight);
     float contentWidth = self.scrollView.contentSize.width;
 
     self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
