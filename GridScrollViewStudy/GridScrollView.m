@@ -16,7 +16,7 @@
 
 @implementation GridScrollView
 
-@synthesize scrollView;
+@synthesize delegate, scrollView;
 @synthesize items;
 
 - (id)initWithFrame:(CGRect)frame
@@ -41,6 +41,11 @@
 {
     [self.items addObject:item];
     [self.scrollView addSubview:item];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectItem:)]) {
+        item.userInteractionEnabled = YES;
+        [item addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                           action:@selector(handleTap:)]];
+    }
     
     int itemCount = [self.items count];
     BOOL isOddItem = (itemCount % 2 == 1);
@@ -66,6 +71,14 @@
     float contentWidth = self.scrollView.contentSize.width;
     
     self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
+}
+
+- (void)handleTap:(UIGestureRecognizer *)gestureRecognizer
+{
+    if ([self.delegate respondsToSelector:@selector(didSelectItem:)]) {
+        UIView *selectedItem = gestureRecognizer.view;
+        [self.delegate didSelectItem:selectedItem];
+    }
 }
 
 /*

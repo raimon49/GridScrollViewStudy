@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "GridScrollView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <GridScrollViewDelegate>
 
 @end
