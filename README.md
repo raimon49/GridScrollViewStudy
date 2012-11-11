@@ -6,7 +6,7 @@ About
 
 iPhone用の2カラム構成グリッドビューが欲しかった時の学習用コードです。
 
-![スクリーンショット](https://github.com/raimon49/GridScrollViewStudy/blob/master/screenshot.png)
+![スクリーンショット](https://raw.github.com/raimon49/GridScrollViewStudy/master/screenshot.png)
 
 環境
 ----
